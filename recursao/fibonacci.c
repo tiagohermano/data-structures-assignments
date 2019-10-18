@@ -1,33 +1,27 @@
 #include <stdio.h>
 
-void imprimirFibonacci(int qtdNum, int indiceAtual, int ultNum, int penultNum);
+int fibonacci (int n);
 
 int main() {
-  int qtdNum; 
-  int ultNum = 0; 
-  int penultNum = 0;
-  int indiceAtual = 0;
+  int qtdNum, i; 
 
   scanf("%i", &qtdNum);
-  imprimirFibonacci(qtdNum, indiceAtual, ultNum, penultNum);
+  for (i=-1; i<qtdNum; i++){
+    printf("%d ",fibonacci(i+1));
+  }
+  
 
   return 0;
 }
 
-void imprimirFibonacci(int qtdNum, int indiceAtual,  int ultNum, int penultNum) {
-  if(indiceAtual<qtdNum) {
-    if(indiceAtual==0) {
-      printf("%i ", indiceAtual);
-      imprimirFibonacci(qtdNum,indiceAtual+1,penultNum,ultNum+1);
+int fibonacci(int num) {
+    if (num == 0){
+        return 0;
     }
-    else if(indiceAtual==1) {
-      printf("%i ", indiceAtual);
-      printf("%i ", indiceAtual);
-      imprimirFibonacci(qtdNum,indiceAtual+1,penultNum,ultNum+1);
+    else if (num == 1){
+        return 1;
     }
     else {
-      printf("%i ", ultNum+penultNum);
-      imprimirFibonacci(qtdNum,indiceAtual+1,penultNum,ultNum+penultNum);
+        return (fibonacci (num - 1)+ fibonacci (num - 2));
     }
-  }
 }
